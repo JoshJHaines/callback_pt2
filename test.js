@@ -63,29 +63,29 @@ describe("reject", function () {
   });
 });
 
-// describe("uniq", function () {
-//   it("should return all unique values contained in an unsorted array", function () {
-//     var numbers = [1, 2, 1, 3, 1, 4];
+describe("uniq", function () {
+  it("should return all unique values contained in an unsorted array", function () {
+    var numbers = [1, 2, 1, 3, 1, 4];
 
-//     expect(uniq(numbers)).to.eql([1, 2, 3, 4]);
-//   });
+    expect(uniq(numbers)).to.eql([1, 2, 3, 4]);
+  });
 
-//   it("should handle iterators that work with a sorted array", function () {
-//     var iterator = function (value) {
-//       return value + 1;
-//     };
-//     var numbers = [1, 2, 2, 3, 4, 4];
+  it("should handle iterators that work with a sorted array", function () {
+    var iterator = function (value) {
+      return value + 1;
+    };
+    var numbers = [1, 2, 2, 3, 4, 4];
 
-//     expect(uniq(numbers, true, iterator)).to.eql([1, 2, 3, 4]);
-//   });
+    expect(uniq(numbers, true, iterator)).to.eql([1, 2, 3, 4]);
+  });
 
-//   it("should produce a brand new array instead of modifying the input array", function () {
-//     var numbers = [1, 2, 1, 3, 1, 4];
-//     var uniqueNumbers = uniq(numbers);
+  it("should produce a brand new array instead of modifying the input array", function () {
+    var numbers = [1, 2, 1, 3, 1, 4];
+    var uniqueNumbers = uniq(numbers);
 
-//     expect(uniqueNumbers).to.not.equal(numbers);
-//   });
-// });
+    expect(uniqueNumbers).to.not.equal(numbers);
+  });
+});
 
 // describe("map", function () {
 //   it("should apply a function to every value in an array", function () {

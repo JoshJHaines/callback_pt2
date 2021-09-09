@@ -57,7 +57,23 @@ const reject = function (collection, callbackTest) {
 };
 
 //use indexOf to solve this
-const uniq = function (array) {};
+const uniq = function (array) {
+  let newArr = []
+  let count = 0
+  for (let i = 0; i < array.length; i++){
+    for (let j = 0; j < newArr.length; j++){
+      if (array[i] == newArr[j]){
+        count += 1
+      }
+    }
+    if (count == 0){
+      newArr.push(array[i])
+    } else {
+      count = 0
+    }
+  }
+  return newArr
+};
 
 const reduce = function (collection, iterator, accumulator) {};
 
