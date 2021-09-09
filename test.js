@@ -33,113 +33,113 @@ describe("filter", function () {
   });
 });
 
-describe("reject", function () {
-  it("should reject all even numbers", function () {
-    var isEven = function (num) {
-      return num % 2 === 0;
-    };
-    var odds = reject([1, 2, 3, 4, 5, 6], isEven);
+// describe("reject", function () {
+//   it("should reject all even numbers", function () {
+//     var isEven = function (num) {
+//       return num % 2 === 0;
+//     };
+//     var odds = reject([1, 2, 3, 4, 5, 6], isEven);
 
-    expect(odds).to.eql([1, 3, 5]);
-  });
+//     expect(odds).to.eql([1, 3, 5]);
+//   });
 
-  it("should reject all odd numbers", function () {
-    var isOdd = function (num) {
-      return num % 2 !== 0;
-    };
-    var evens = reject([1, 2, 3, 4, 5, 6], isOdd);
+//   it("should reject all odd numbers", function () {
+//     var isOdd = function (num) {
+//       return num % 2 !== 0;
+//     };
+//     var evens = reject([1, 2, 3, 4, 5, 6], isOdd);
 
-    expect(evens).to.eql([2, 4, 6]);
-  });
+//     expect(evens).to.eql([2, 4, 6]);
+//   });
 
-  it("should produce a brand new array instead of modifying the input array", function () {
-    var isOdd = function (num) {
-      return num % 2 !== 0;
-    };
-    var numbers = [1, 2, 3, 4, 5, 6];
-    var evens = reject(numbers, isOdd);
+//   it("should produce a brand new array instead of modifying the input array", function () {
+//     var isOdd = function (num) {
+//       return num % 2 !== 0;
+//     };
+//     var numbers = [1, 2, 3, 4, 5, 6];
+//     var evens = reject(numbers, isOdd);
 
-    expect(evens).to.not.equal(numbers);
-  });
-});
+//     expect(evens).to.not.equal(numbers);
+//   });
+// });
 
-describe("uniq", function () {
-  it("should return all unique values contained in an unsorted array", function () {
-    var numbers = [1, 2, 1, 3, 1, 4];
+// describe("uniq", function () {
+//   it("should return all unique values contained in an unsorted array", function () {
+//     var numbers = [1, 2, 1, 3, 1, 4];
 
-    expect(uniq(numbers)).to.eql([1, 2, 3, 4]);
-  });
+//     expect(uniq(numbers)).to.eql([1, 2, 3, 4]);
+//   });
 
-  it("should handle iterators that work with a sorted array", function () {
-    var iterator = function (value) {
-      return value + 1;
-    };
-    var numbers = [1, 2, 2, 3, 4, 4];
+//   it("should handle iterators that work with a sorted array", function () {
+//     var iterator = function (value) {
+//       return value + 1;
+//     };
+//     var numbers = [1, 2, 2, 3, 4, 4];
 
-    expect(uniq(numbers, true, iterator)).to.eql([1, 2, 3, 4]);
-  });
+//     expect(uniq(numbers, true, iterator)).to.eql([1, 2, 3, 4]);
+//   });
 
-  it("should produce a brand new array instead of modifying the input array", function () {
-    var numbers = [1, 2, 1, 3, 1, 4];
-    var uniqueNumbers = uniq(numbers);
+//   it("should produce a brand new array instead of modifying the input array", function () {
+//     var numbers = [1, 2, 1, 3, 1, 4];
+//     var uniqueNumbers = uniq(numbers);
 
-    expect(uniqueNumbers).to.not.equal(numbers);
-  });
-});
+//     expect(uniqueNumbers).to.not.equal(numbers);
+//   });
+// });
 
-describe("map", function () {
-  it("should apply a function to every value in an array", function () {
-    var doubledNumbers = map([1, 2, 3], function (num) {
-      return num * 2;
-    });
+// describe("map", function () {
+//   it("should apply a function to every value in an array", function () {
+//     var doubledNumbers = map([1, 2, 3], function (num) {
+//       return num * 2;
+//     });
 
-    expect(doubledNumbers).to.eql([2, 4, 6]);
-  });
+//     expect(doubledNumbers).to.eql([2, 4, 6]);
+//   });
 
-  it("should produce a brand new array instead of modifying the input array", function () {
-    var numbers = [1, 2, 3];
-    var mappedNumbers = map(numbers, function (num) {
-      return num;
-    });
+//   it("should produce a brand new array instead of modifying the input array", function () {
+//     var numbers = [1, 2, 3];
+//     var mappedNumbers = map(numbers, function (num) {
+//       return num;
+//     });
 
-    expect(mappedNumbers).to.not.equal(numbers);
-  });
-});
+//     expect(mappedNumbers).to.not.equal(numbers);
+//   });
+// });
 
-describe("reduce", function () {
-  it("should be able to sum up an array", function () {
-    var add = function (tally, item) {
-      return tally + item;
-    };
-    var total = reduce([1, 2, 3], add, 0);
+// describe("reduce", function () {
+//   it("should be able to sum up an array", function () {
+//     var add = function (tally, item) {
+//       return tally + item;
+//     };
+//     var total = reduce([1, 2, 3], add, 0);
 
-    expect(total).to.equal(6);
-  });
+//     expect(total).to.equal(6);
+//   });
 
-  it("should use the first element as an accumulator when none is given", function () {
-    var add = function (tally, item) {
-      return tally + item;
-    };
-    var total = reduce([1, 2, 3], add);
+//   it("should use the first element as an accumulator when none is given", function () {
+//     var add = function (tally, item) {
+//       return tally + item;
+//     };
+//     var total = reduce([1, 2, 3], add);
 
-    expect(total).to.equal(6);
-  });
+//     expect(total).to.equal(6);
+//   });
 
-  it("should invoke the iterator on the first element when given an accumulator", function () {
-    var sumSquares = function (tally, item) {
-      return tally + item * item;
-    };
-    var total = reduce([2, 3], sumSquares, 0);
+//   it("should invoke the iterator on the first element when given an accumulator", function () {
+//     var sumSquares = function (tally, item) {
+//       return tally + item * item;
+//     };
+//     var total = reduce([2, 3], sumSquares, 0);
 
-    expect(total).to.equal(13);
-  });
+//     expect(total).to.equal(13);
+//   });
 
-  it("should not invoke the iterator on the first element when using it as an accumulator", function () {
-    var sumSquares = function (tally, item) {
-      return tally + item * item;
-    };
-    var total = reduce([2, 3], sumSquares);
+//   it("should not invoke the iterator on the first element when using it as an accumulator", function () {
+//     var sumSquares = function (tally, item) {
+//       return tally + item * item;
+//     };
+//     var total = reduce([2, 3], sumSquares);
 
-    expect(total).to.equal(11);
-  });
-});
+//     expect(total).to.equal(11);
+//   });
+// });
