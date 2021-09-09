@@ -35,7 +35,16 @@ const map = function (collection, iterator) {
   return result;
 };
 
-const filter = function (collection, callback) {};
+const filter = function (collection, callback) {
+  let newArr = []
+  for (let i = 0; i < collection.length; i++){
+    if (callback(collection[i]) == true){
+      newArr.push(collection[i])
+    }
+  }
+  return newArr
+};
+
 //reject([1, 2, 3, 4, 5, 6], isEven);
 const reject = function (collection, callbackTest) {};
 
