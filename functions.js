@@ -46,7 +46,15 @@ const filter = function (collection, callback) {
 };
 
 //reject([1, 2, 3, 4, 5, 6], isEven);
-const reject = function (collection, callbackTest) {};
+const reject = function (collection, callbackTest) {
+  let newArr = []
+  for (let i = 0; i < collection.length; i++){
+    if (callbackTest(collection[i]) != true){
+      newArr.push(collection[i])
+    }
+  }
+  return newArr
+};
 
 //use indexOf to solve this
 const uniq = function (array) {};

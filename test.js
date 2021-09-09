@@ -33,35 +33,35 @@ describe("filter", function () {
   });
 });
 
-// describe("reject", function () {
-//   it("should reject all even numbers", function () {
-//     var isEven = function (num) {
-//       return num % 2 === 0;
-//     };
-//     var odds = reject([1, 2, 3, 4, 5, 6], isEven);
+describe("reject", function () {
+  it("should reject all even numbers", function () {
+    var isEven = function (num) {
+      return num % 2 === 0;
+    };
+    var odds = reject([1, 2, 3, 4, 5, 6], isEven);
 
-//     expect(odds).to.eql([1, 3, 5]);
-//   });
+    expect(odds).to.eql([1, 3, 5]);
+  });
 
-//   it("should reject all odd numbers", function () {
-//     var isOdd = function (num) {
-//       return num % 2 !== 0;
-//     };
-//     var evens = reject([1, 2, 3, 4, 5, 6], isOdd);
+  it("should reject all odd numbers", function () {
+    var isOdd = function (num) {
+      return num % 2 !== 0;
+    };
+    var evens = reject([1, 2, 3, 4, 5, 6], isOdd);
 
-//     expect(evens).to.eql([2, 4, 6]);
-//   });
+    expect(evens).to.eql([2, 4, 6]);
+  });
 
-//   it("should produce a brand new array instead of modifying the input array", function () {
-//     var isOdd = function (num) {
-//       return num % 2 !== 0;
-//     };
-//     var numbers = [1, 2, 3, 4, 5, 6];
-//     var evens = reject(numbers, isOdd);
+  it("should produce a brand new array instead of modifying the input array", function () {
+    var isOdd = function (num) {
+      return num % 2 !== 0;
+    };
+    var numbers = [1, 2, 3, 4, 5, 6];
+    var evens = reject(numbers, isOdd);
 
-//     expect(evens).to.not.equal(numbers);
-//   });
-// });
+    expect(evens).to.not.equal(numbers);
+  });
+});
 
 // describe("uniq", function () {
 //   it("should return all unique values contained in an unsorted array", function () {
