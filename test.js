@@ -87,59 +87,59 @@ describe("uniq", function () {
   });
 });
 
-// describe("map", function () {
-//   it("should apply a function to every value in an array", function () {
-//     var doubledNumbers = map([1, 2, 3], function (num) {
-//       return num * 2;
-//     });
+describe("map", function () {
+  it("should apply a function to every value in an array", function () {
+    var doubledNumbers = map([1, 2, 3], function (num) {
+      return num * 2;
+    });
 
-//     expect(doubledNumbers).to.eql([2, 4, 6]);
-//   });
+    expect(doubledNumbers).to.eql([2, 4, 6]);
+  });
 
-//   it("should produce a brand new array instead of modifying the input array", function () {
-//     var numbers = [1, 2, 3];
-//     var mappedNumbers = map(numbers, function (num) {
-//       return num;
-//     });
+  it("should produce a brand new array instead of modifying the input array", function () {
+    var numbers = [1, 2, 3];
+    var mappedNumbers = map(numbers, function (num) {
+      return num;
+    });
 
-//     expect(mappedNumbers).to.not.equal(numbers);
-//   });
-// });
+    expect(mappedNumbers).to.not.equal(numbers);
+  });
+});
 
-// describe("reduce", function () {
-//   it("should be able to sum up an array", function () {
-//     var add = function (tally, item) {
-//       return tally + item;
-//     };
-//     var total = reduce([1, 2, 3], add, 0);
+describe("reduce", function () {
+  it("should be able to sum up an array", function () {
+    var add = function (tally, item) {
+      return tally + item;
+    };
+    var total = reduce([1, 2, 3], add, 0);
 
-//     expect(total).to.equal(6);
-//   });
+    expect(total).to.equal(6);
+  });
 
-//   it("should use the first element as an accumulator when none is given", function () {
-//     var add = function (tally, item) {
-//       return tally + item;
-//     };
-//     var total = reduce([1, 2, 3], add);
+  it("should use the first element as an accumulator when none is given", function () {
+    var add = function (tally, item) {
+      return tally + item;
+    };
+    var total = reduce([1, 2, 3], add);
 
-//     expect(total).to.equal(6);
-//   });
+    expect(total).to.equal(6);
+  });
 
-//   it("should invoke the iterator on the first element when given an accumulator", function () {
-//     var sumSquares = function (tally, item) {
-//       return tally + item * item;
-//     };
-//     var total = reduce([2, 3], sumSquares, 0);
+  it("should invoke the iterator on the first element when given an accumulator", function () {
+    var sumSquares = function (tally, item) {
+      return tally + item * item;
+    };
+    var total = reduce([2, 3], sumSquares, 0);
 
-//     expect(total).to.equal(13);
-//   });
+    expect(total).to.equal(13);
+  });
 
-//   it("should not invoke the iterator on the first element when using it as an accumulator", function () {
-//     var sumSquares = function (tally, item) {
-//       return tally + item * item;
-//     };
-//     var total = reduce([2, 3], sumSquares);
+  it("should not invoke the iterator on the first element when using it as an accumulator", function () {
+    var sumSquares = function (tally, item) {
+      return tally + item * item;
+    };
+    var total = reduce([2, 3], sumSquares);
 
-//     expect(total).to.equal(11);
-//   });
-// });
+    expect(total).to.equal(11);
+  });
+});

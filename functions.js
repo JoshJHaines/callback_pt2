@@ -75,7 +75,21 @@ const uniq = function (array) {
   return newArr
 };
 
-const reduce = function (collection, iterator, accumulator) {};
+const reduce = function (collection, iterator, accumulator) {
+  let reducedNum = 0
+
+  if (accumulator == undefined){
+    for (let i = 1; i < collection.length; i++){
+      reducedNum = iterator(reducedNum, collection[i]) 
+    }
+    reducedNum += collection[0]
+  } else {
+    for (let i = accumulator; i < collection.length; i++){
+      reducedNum = iterator(reducedNum, collection[i])
+    }
+  }
+  return reducedNum
+};
 
 module.exports = {
   filter,
